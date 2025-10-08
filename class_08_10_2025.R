@@ -45,3 +45,4 @@ group_by(Class) %>%
 mutate(total = sum(count), survival_rate = (count / total) * 100) %>%
 filter(Survived == "Yes") %>%
 select(Class, survival_rate)
+
