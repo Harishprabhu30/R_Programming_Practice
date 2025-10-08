@@ -42,5 +42,6 @@ summarise(count = sum(n), .groups = "drop") %>% # n represents all the counts in
 # either use .groups = "drop" or ungroup() to remove the grouping after summarise.
 # ungroup() %>% 
 group_by(Class) %>%
-mutate(total = sum(count))
-
+mutate(total = sum(count), survival_rate = (count / total) * 100) %>%
+filter(Survived == "Yes") %>%
+select(Class, survival_rate)
